@@ -25,10 +25,10 @@ function urlFor(source: any) {
 const bodyComponents = {
     block: {
         normal: ({children}: any) => <Text>{children}</Text>,
-        h1: ({children}: any) => <Heading as='h1' size='2xl'>{children}</Heading>,
-        h2: ({children}: any) => <Heading as='h2'>{children}</Heading>,
-        h3: ({children}: any) => <Heading as='h3'>{children}</Heading>,
-        h4: ({children}: any) => <Heading as='h4' size='lg'>{children}</Heading>,
+        h1: ({children}: any) => <Heading as='h1' size='2xl' lineHeight="1.4">{children}</Heading>,
+        h2: ({children}: any) => <Heading as='h2' lineHeight="1.4">{children}</Heading>,
+        h3: ({children}: any) => <Heading as='h3' lineHeight="1.4">{children}</Heading>,
+        h4: ({children}: any) => <Heading as='h4' size='md' lineHeight="1.6">{children}</Heading>,
     },
     list: {
         bullet: ({children}: any) => <UnorderedList>{children}</UnorderedList>,

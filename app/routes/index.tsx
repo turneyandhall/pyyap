@@ -5,8 +5,7 @@ import { config } from "~/lib/sanity/config"
 import imageUrlBuilder from '@sanity/image-url'
 import { PortableText } from '@portabletext/react'
 import TextContainer from "~/components/textContainer";
-import { Box, Heading, Highlight, Image, Link as PLink, ListItem, Text, UnorderedList } from '@chakra-ui/react'
-
+import { Box, Heading, Image, Link as PLink, ListItem, Text, UnorderedList } from '@chakra-ui/react'
 
 export const meta: MetaFunction = () => {
   return {
@@ -28,7 +27,6 @@ export async function loader() {
         "cats": categories[]->title
       }`,
 	)
-
 	return { page, posts }
 }
 
@@ -48,7 +46,7 @@ const bodyComponents = {
   block: {
       normal: ({children}: any) => <Text>{children}</Text>,
       h1: ({children}: any) => <Heading as='h1' color="white" size='2xl'>{children}</Heading>,
-      h2: ({children}: any) => <Heading as='h2' color="white" lineHeight="1.4">{children}</Heading>,
+      h2: ({children}: any) => <Heading as='h2' color="white" lineHeight="1.4" letterSpacing="-0.025em" fontWeight="700">{children}</Heading>,
       h3: ({children}: any) => <Heading as='h3'color="white" >{children}</Heading>,
       h4: ({children}: any) => <Heading as='h4' color="white" mt="16">{children}</Heading>,
       p: ({children}: any) => <Text>{children}</Text>,
@@ -79,7 +77,7 @@ export default function Index() {
   let { body } = page[0]
   return (
     <>
-      <Box bg="pyyap.500" h="75vh">
+      <Box bg="pyyap.500" minH={{ base: '50vh', md: '75vh'}}>
         <TextContainer>
           <PortableText value={body} components={bodyComponents} />
         </TextContainer>
@@ -94,7 +92,11 @@ export default function Index() {
                   ))
               }
 							<Link to={'posts/'+post.slug.current}>
-              <Heading as="h3" size='lg'>{post.title}</Heading>
+              <Heading 
+                as="h3" 
+                size='lg'
+                transition="0.3s textShadow ease-in-out"
+                >{post.title}</Heading>
                 {post.publishedAt && 
                 <Text my="0" fontWeight={500}>
                   {new Date(post.publishedAt).toLocaleString("en-US", { day : 'numeric'})}
