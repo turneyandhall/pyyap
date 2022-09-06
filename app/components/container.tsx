@@ -2,7 +2,7 @@ import { Box } from '@chakra-ui/react'
 
 export default function Container({children}: any) {
   return (
-    <Box p={{ base: 8, md: 16}}>
+    <Box px={{ base: 4, md: 16}} py={{ base: 8, md: 16}}>
         {children}
     </Box>
   )
