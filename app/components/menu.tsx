@@ -10,15 +10,15 @@ export default function Menu() {
   const buildings = [TbHome, TbHome2, TbBuildingCommunity, TbBuildingSkyscraper, TbBuildingFactory2, TbBuildingStore]
 
   return (
-    <GridItem w='100%' h='100vh'>
-      <Box pos="fixed" w='60px' h='100vh' bg='gray.100'>
-        <Flex pos="absolute" align="center" justify="flex-start" w="100vh" h="60px" px="1.5em" left="60px" transformOrigin="0 0" transform="rotate(90deg)">
+    <GridItem w='100%' h={{ base: '60px', md: '100vh'}}>
+      <Box pos={{ base: 'relative', md: 'fixed'}} w={{ base: '100%', md: '60px'}} h={{ base: '60px', md: '100vh'}} bg='gray.100'>
+        <Flex pos="absolute" align="center" justify="flex-start" w={{ base: '100%', md: '100vh'}} h="60px" px="1.5em" left={{ base: '0', md: '60px'}} transformOrigin="0 0" transform={{ base: 'rotate(0)', md: 'rotate(90deg)'}}>
           <Link 
             onClick={() => setBuilding(Math.floor(Math.random() * buildings.length))}
             as={NavLink} 
             to="/" 
             p="0.5em"
-            transform="rotate(-90deg)"
+            transform={{ base: 'rotate(0)', md: 'rotate(-90deg)'}}
             fontSize="xl"
             ><Icon as={buildings[building]} /></Link>
           <Link 
