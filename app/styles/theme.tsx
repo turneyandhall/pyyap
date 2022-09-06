@@ -2,19 +2,19 @@ import { extendTheme, ChakraProvider } from '@chakra-ui/react'
 
 export const Theme = extendTheme({
     fonts: {
-      heading: "roboto, sans-serif",
-      body: "roboto, sans-serif",
+      heading: "'DM Sans', sans-serif",
+      body: "'DM Sans', sans-serif",
     },
     fontWeights: {
-      hairline: 300,
-      thin: 300,
-      light: 300,
-      normal: 300,
-      medium: 500,
-      semibold: 500,
+      hairline: 400,
+      thin: 400,
+      light: 400,
+      normal: 400,
+      medium: 400,
+      semibold: 400,
       bold: 700,
-      extrabold: 900,
-      black: 900,
+      extrabold: 700,
+      black: 700,
     },
     colors: {
       pyyap: {
@@ -22,7 +22,7 @@ export const Theme = extendTheme({
         800: "#209d50",
         700: "#1e9d50",
         650: "#0d4f26",
-        600: "#ff7f50",
+        600: "#009A17",
         500: "#209d50",
         400: "#E1DFDE",
         300: "#918c79",
@@ -34,9 +34,11 @@ export const Theme = extendTheme({
       global: {
         html: {
           fontSize: "16px",
+          
         },
         body: {
-        backgroundColor: "#ff7f50"
+        backgroundColor: "gray.50",
+        overscrollBehavior: "none",
         },
         p: {
           margin: '1em 0',
