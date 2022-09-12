@@ -94,7 +94,7 @@ export default function Index() {
             <Box key={post._id}>
               {post.cats && 
                 post.cats.map((c: string, i: number) => (
-                  <Heading as="h4" size='sm' key="c" textTransform="lowercase">{c}</Heading>
+                  <Heading as="h4" size='sm' key="c">{c}</Heading>
                   ))
               }
 							<Link to={'posts/'+post.slug.current}>

@@ -63,7 +63,7 @@ export default function Page() {
         <Container>
         {cats && 
             cats.map((c: string, i: number) => (
-              <Heading as="h4" size='md' key="c" textTransform="lowercase">{c}</Heading>
+              <Heading as="h4" size='md' key="c">{c}</Heading>
               ))
           }
           <Heading as='h1' size='2xl' fontFamily="DM Serif Display, serif" lineHeight="1.4" fontWeight="400">{title}</Heading>
