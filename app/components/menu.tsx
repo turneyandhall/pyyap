@@ -28,10 +28,10 @@ export default function Menu() {
             p="0.5em"
             _hover={{
               textDecoration: "none",
-              color: "pyyap.600",
+              color: "pyyap.500",
             }}
             _activeLink={{
-              color: "pyyap.600",
+              color: "pyyap.500",
             }}
             >About</Link>
           <Link 
@@ -41,10 +41,10 @@ export default function Menu() {
             p="0.5em"
             _hover={{
               textDecoration: "none",
-              color: "pyyap.600",
+              color: "pyyap.500",
             }}
             _activeLink={{
-              color: "pyyap.600",
+              color: "pyyap.500",
             }}
             >Posts</Link>
           <Link 
@@ -55,10 +55,10 @@ export default function Menu() {
             ml="auto"
             _hover={{
               textDecoration: "none",
-              color: "pyyap.600",
+              color: "pyyap.500",
             }}
             _activeLink={{
-              color: "pyyap.600",
+              color: "pyyap.500",
             }}
             >Contact</Link>
         </Flex>

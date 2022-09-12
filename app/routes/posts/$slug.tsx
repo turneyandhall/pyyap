@@ -42,7 +42,7 @@ const bodyComponents = {
         link: ({value, children}: any) => {
           const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
           return (
-            <Link color="cake.700" href={value?.href} target={target}>
+            <Link color="pyyap.500" href={value?.href} target={target}>
               {children}
             </Link>
           )
@@ -63,10 +63,10 @@ export default function Page() {
         <Container>
         {cats && 
             cats.map((c: string, i: number) => (
-              <Heading as="h4" size='md' key="c">{c}</Heading>
+              <Heading as="h4" size='md' key="c" textTransform="lowercase">{c}</Heading>
               ))
           }
-          <Heading as='h1' size='2xl' fontWeight={900}>{title}</Heading>
+          <Heading as='h1' size='2xl' fontFamily="DM Serif Display, serif" lineHeight="1.4" fontWeight="400">{title}</Heading>
           <Box my="4">
               {publishedAt && <Text as="span">{articleDate}</Text>}
           </Box>

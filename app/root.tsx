@@ -29,6 +29,10 @@ export let links: LinksFunction = () => {
     {
       rel: 'stylesheet',
       href: 'https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap'
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap'
     }
   ]
 }
@@ -60,6 +64,13 @@ const Document = withEmotionCache(
       <html lang="en">
         <head>
           <Meta />
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"></link>
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"></link>
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"></link>
+          <link rel="manifest" href="/site.webmanifest"></link>
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ec2d01"></link>
+          <meta name="msapplication-TileColor" content="#da532c"></meta>
+          <meta name="theme-color" content="#ffffff"></meta>
           <Links />
           {serverStyleData?.map(({ key, ids, css }) => (
             <style

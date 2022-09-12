@@ -7,7 +7,7 @@ import { PortableText } from '@portabletext/react'
 import Container from "~/components/container"
 import TextContainer from "~/components/textContainer";
 
-import { Heading, Image, Link, ListItem, Text, UnorderedList } from '@chakra-ui/react'
+import { Box, Button, FormControl, Heading, Image, Input, Link, ListItem, Select, Stack, Text, Textarea, UnorderedList } from '@chakra-ui/react'
 
 
 export const meta: MetaFunction = () => {
@@ -56,7 +56,7 @@ const bodyComponents = {
       link: ({value, children}: any) => {
         const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
         return (
-          <Link color="cake.700" href={value?.href} target={target}>
+          <Link color="pyyap.500" href={value?.href} target={target}>
             {children}
           </Link>
         )
@@ -70,13 +70,53 @@ const bodyComponents = {
 export default function Contact() {
   let page = useLoaderData()
   let { body, title } = page[0]
+
+  const handleSubmit = (e: React.SyntheticEvent | any) => {
+    e.preventDefault()
+
+    const form = e.target as typeof e.target & {
+      name: { value: string }
+      email: { value: string }
+      message: { value: string }    }
+    const data = new FormData(form)
+
+    fetch('/form.html', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data as any).toString(),
+    })
+      .then(() => {
+        window.location.href = '/success-message/'
+      })
+      .catch((error) => alert(error))
+  }
+
   return (
     <>
       <Container>
-        <Heading as="h1">{title}</Heading>
+        <Heading as="h1" fontFamily="DM Serif Display, serif" lineHeight="1.4" fontWeight="400">{title}</Heading>
       </Container>
       <TextContainer>
         <PortableText value={body} components={bodyComponents} />
+        <form 
+          name="contact" 
+          method="post" 
+          data-netlify="true"
+          onSubmit={handleSubmit}>
+          <Stack spacing={3} maxW="500px">
+            <input type='hidden' name='form-name' value='contact' />
+            <Select name='request' focusBorderColor='pyyap.500' placeholder="I'm...">
+              <option value='Just saying hello'>...just saying hello</option>
+              <option value="a planner with something to say">...a planner with something to say</option>
+              <option value="interested in what you're doing, tell me more">...interested in what you're doing, tell me more</option>
+              <option value="interested in what you're doing, can I help">...interested in what you're doing, can I help</option>
+            </Select>
+            <Input type="text" focusBorderColor='pyyap.500' isRequired name="name" placeholder='Name' />
+            <Input type="email" focusBorderColor='pyyap.500' name="email" placeholder='Email' />
+            <Textarea name="message" focusBorderColor='pyyap.500' isRequired placeholder='Your Message' />
+            <Button type="submit" bg='pyyap.500' color="white" variant='solid' _hover={{ bg: 'pyyap.600' }} _active={{ bg: 'pyyap.600' }} _focus={{ bg: 'pyyap.600' }}>Submit</Button>
+          </Stack>
+        </form>
       </TextContainer>
     </>
   )

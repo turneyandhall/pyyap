@@ -22,8 +22,8 @@ export const Theme = extendTheme({
         800: "#209d50",
         700: "#1e9d50",
         650: "#0d4f26",
-        600: "#009A17",
-        500: "#209d50",
+        600: "#d42800",
+        500: "#ec2d01",
         400: "#E1DFDE",
         300: "#918c79",
         200: "#d9d7d0",
@@ -36,8 +36,10 @@ export const Theme = extendTheme({
           fontSize: "16px",
           
         },
+        'html, body': {
+          backgroundColor: "gray.50",
+        },
         body: {
-        backgroundColor: "gray.50",
         overscrollBehavior: "none",
         },
         p: {

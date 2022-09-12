@@ -6,6 +6,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import { PortableText } from '@portabletext/react'
 import TextContainer from "~/components/textContainer";
 import { Box, Heading, Image, Link as PLink, ListItem, Text, UnorderedList } from '@chakra-ui/react'
+import { motion } from "framer-motion"
 
 export const meta: MetaFunction = () => {
   return {
@@ -46,7 +47,7 @@ const bodyComponents = {
   block: {
       normal: ({children}: any) => <Text>{children}</Text>,
       h1: ({children}: any) => <Heading as='h1' color="white" size='2xl'>{children}</Heading>,
-      h2: ({children}: any) => <Heading as='h2' color="white" lineHeight="1.4" letterSpacing="-0.025em" fontWeight="700">{children}</Heading>,
+      h2: ({children}: any) => <Heading as='h2' color="white" fontFamily="DM Serif Display, serif" lineHeight="1.4" fontWeight="400">{children}</Heading>,
       h3: ({children}: any) => <Heading as='h3'color="white" >{children}</Heading>,
       h4: ({children}: any) => <Heading as='h4' color="white" mt="16">{children}</Heading>,
       p: ({children}: any) => <Text>{children}</Text>,
@@ -61,11 +62,16 @@ const bodyComponents = {
       link: ({value, children}: any) => {
         const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
         return (
-          <PLink color="cake.700" href={value?.href} target={target}>
+          <PLink color="pyyap.500" href={value?.href} target={target}>
             {children}
           </PLink>
         )
       },
+      mark: ({children}: any) => <motion.span 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.75, delay: 1.5 }}
+        ><br />{children}</motion.span>,
     },
     types: {
       image: SampleImageComponent,
@@ -77,7 +83,7 @@ export default function Index() {
   let { body } = page[0]
   return (
     <>
-      <Box bg="pyyap.500" minH={{ base: '50vh', md: '75vh'}}>
+      <Box bg="pyyap.500" minH={{ base: '50vh', md: '75vh'}} zIndex="2" pos="relative">
         <TextContainer>
           <PortableText value={body} components={bodyComponents} />
         </TextContainer>
@@ -88,14 +94,16 @@ export default function Index() {
             <Box key={post._id}>
               {post.cats && 
                 post.cats.map((c: string, i: number) => (
-                  <Heading as="h4" size='md' key="c">{c}</Heading>
+                  <Heading as="h4" size='sm' key="c" textTransform="lowercase">{c}</Heading>
                   ))
               }
 							<Link to={'posts/'+post.slug.current}>
               <Heading 
                 as="h3" 
                 size='lg'
-                transition="0.3s textShadow ease-in-out"
+                fontFamily="DM Serif Display, serif" 
+                lineHeight="1.4" 
+                fontWeight="400"
                 >{post.title}</Heading>
                 {post.publishedAt && 
                 <Text my="0" fontWeight={500}>

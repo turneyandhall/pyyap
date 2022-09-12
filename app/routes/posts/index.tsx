@@ -30,7 +30,7 @@ export default function Index() {
   return (
     <>
       <Container>
-        <Heading as="h1">Posts</Heading>
+        <Heading as="h1" fontFamily="DM Serif Display, serif" lineHeight="1.4" fontWeight="400">Posts</Heading>
       </Container>
       <Container>
       {posts?.length > 0
@@ -38,11 +38,11 @@ export default function Index() {
             <Box key={post._id}>
               {post.cats && 
                 post.cats.map((c: string, i: number) => (
-                  <Heading as="h4" size='md' key="c">{c}</Heading>
+                  <Heading as="h4" size='sm' key="c">{c}</Heading>
                   ))
               }
 							<Link to={post.slug.current}>
-              <Heading as="h3" size='lg'>{post.title}</Heading>
+              <Heading as="h3" size='lg' fontFamily="DM Serif Display, serif" lineHeight="1.4" fontWeight="400">{post.title}</Heading>
                 {post.publishedAt && 
                 <Text my="0" fontWeight={500}>
                   {new Date(post.publishedAt).toLocaleString("en-US", { day : 'numeric'})}

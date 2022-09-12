@@ -55,7 +55,7 @@ const bodyComponents = {
       link: ({value, children}: any) => {
         const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
         return (
-          <Link color="cake.700" href={value?.href} target={target}>
+          <Link color="pyyap.500" href={value?.href} target={target}>
             {children}
           </Link>
         )
@@ -72,7 +72,7 @@ export default function About() {
   return (
     <>
       <Container>
-        <Heading as="h1">{title}</Heading>
+        <Heading as="h1" fontFamily="DM Serif Display, serif" lineHeight="1.4" fontWeight="400">{title}</Heading>
       </Container>
       <TextContainer>
         <PortableText value={body} components={bodyComponents} />
