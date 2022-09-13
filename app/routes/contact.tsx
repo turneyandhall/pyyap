@@ -105,12 +105,6 @@ export default function Contact() {
           onSubmit={handleSubmit}>
           <Stack spacing={3} maxW="500px">
             <input type='hidden' name='form-name' value='contact' />
-            <Select name='request' focusBorderColor='pyyap.500' placeholder="I'm...">
-              <option value='Just saying hello'>...just saying hello</option>
-              <option value="a planner with something to say">...a planner with something to say</option>
-              <option value="interested in what you're doing, tell me more">...interested in what you're doing, tell me more</option>
-              <option value="interested in what you're doing, can I help">...interested in what you're doing, can I help</option>
-            </Select>
             <Input type="text" focusBorderColor='pyyap.500' isRequired name="name" placeholder='Name' />
             <Input type="email" focusBorderColor='pyyap.500' name="email" placeholder='Email' />
             <Textarea name="message" focusBorderColor='pyyap.500' isRequired placeholder='Your Message' />
