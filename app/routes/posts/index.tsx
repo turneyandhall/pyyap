@@ -35,7 +35,7 @@ export default function Index() {
       <Container>
       {posts?.length > 0
 				? posts.map((post: {_id: number, slug: {current: string}, title: string, publishedAt: any, cats: any, catSlug: any}) => (
-            <Box key={post._id}>
+            <Box key={post._id} mb={8}>
               {post.cats && 
                 post.cats.map((c: string, i: number) => (
                   <Heading as="h4" size='sm' key="c">{c}</Heading>
