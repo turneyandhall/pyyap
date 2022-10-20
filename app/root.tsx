@@ -18,7 +18,7 @@ import { ServerStyleContext, ClientStyleContext } from './context'
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
-  title: "Pinch yourself your a planner",
+  title: "Pinch yourself you're a planner",
   viewport: 'width=device-width,initial-scale=1',
 });
 
