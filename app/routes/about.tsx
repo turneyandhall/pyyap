@@ -12,7 +12,7 @@ import { Heading, Image, Link, ListItem, Text, UnorderedList } from '@chakra-ui/
 export const meta: MetaFunction = () => {
   return {
     description:
-      "Welcome to the pinch yourself you're a planner website",
+      "Welcome to the pinch yourself, you're a planner website",
   }
 }
 

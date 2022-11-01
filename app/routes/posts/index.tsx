@@ -8,7 +8,7 @@ import { Box, Heading, Image, Link as PLink, ListItem, Text, UnorderedList } fro
 export const meta: MetaFunction = () => {
   return {
     description:
-      "All the posts",
+      "All the pinch yourself, you're a planner posts",
   }
 }
 

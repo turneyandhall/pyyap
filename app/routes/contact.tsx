@@ -13,7 +13,7 @@ import { Box, Button, FormControl, Heading, Image, Input, Link, ListItem, Select
 export const meta: MetaFunction = () => {
   return {
     description:
-      "Welcome to the pinch yourself you're a planner website",
+      "Contact pinch yourself, you're a planner",
   }
 }
 

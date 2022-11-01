@@ -11,7 +11,7 @@ import { motion } from "framer-motion"
 export const meta: MetaFunction = () => {
   return {
     description:
-      "Welcome to the pinch yourself you're a planner website",
+      "Welcome to the pinch yourself, you're a planner website",
   }
 }
 
