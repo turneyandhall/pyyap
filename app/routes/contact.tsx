@@ -37,6 +37,19 @@ const SampleImageComponent = ({value}: any) => {
   )
 }
 
+const Acast = ({value}: any) => {
+  return (
+    <Box className="acast-embed" overflow="hidden">
+      <iframe
+        src={value.url}
+        frameBorder="0" 
+        width="100%" 
+        height="110px"
+      />
+  </Box>
+  )
+}
+
 const bodyComponents = {
   block: {
       normal: ({children}: any) => <Text>{children}</Text>,
@@ -64,6 +77,7 @@ const bodyComponents = {
     },
     types: {
       image: SampleImageComponent,
+      acast: Acast
     },
 }
 

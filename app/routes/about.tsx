@@ -6,7 +6,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import { PortableText } from '@portabletext/react'
 import Container from "~/components/container";
 import TextContainer from "~/components/textContainer";
-import { Heading, Image, Link, ListItem, Text, UnorderedList } from '@chakra-ui/react'
+import { Box, Heading, Image, Link, ListItem, Text, UnorderedList } from '@chakra-ui/react'
 
 
 export const meta: MetaFunction = () => {
@@ -33,6 +33,19 @@ function urlFor(source: any) {
 const SampleImageComponent = ({value}: any) => {
   return (
     <Image loading="lazy" src={urlFor(value).width(1500).url()} w="100%" h="100%" align="0 30%" objectFit='cover' alt='page image header' />
+  )
+}
+
+const Acast = ({value}: any) => {
+  return (
+    <Box className="acast-embed" overflow="hidden">
+      <iframe
+        src={value.url}
+        frameBorder="0" 
+        width="100%" 
+        height="110px"
+      />
+  </Box>
   )
 }
 
@@ -63,6 +76,7 @@ const bodyComponents = {
     },
     types: {
       image: SampleImageComponent,
+      acast: Acast
     },
 }
 
