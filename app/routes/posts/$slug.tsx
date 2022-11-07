@@ -22,32 +22,55 @@ function urlFor(source: any) {
   return builder.image(source)
 }
 
+const SampleImageComponent = ({value}: any) => {
+  return (
+    <Image loading="lazy" src={urlFor(value).width(1500).url()} w="100%" h="100%" align="0 30%" objectFit='cover' alt='page image header' />
+  )
+}
+
+const Acast = ({value}: any) => {
+  return (
+    <Box className="acast-embed" overflow="hidden">
+      <iframe
+        src={value.url}
+        frameBorder="0" 
+        width="100%" 
+        height="110px"
+      />
+  </Box>
+  )
+}
+
 const bodyComponents = {
     block: {
-        normal: ({children}: any) => <Text>{children}</Text>,
-        h1: ({children}: any) => <Heading as='h1' size='2xl' lineHeight="1.4">{children}</Heading>,
-        h2: ({children}: any) => <Heading as='h2' lineHeight="1.4">{children}</Heading>,
-        h3: ({children}: any) => <Heading as='h3' lineHeight="1.4">{children}</Heading>,
-        h4: ({children}: any) => <Heading as='h4' size='md' lineHeight="1.6">{children}</Heading>,
+      normal: ({children}: any) => <Text>{children}</Text>,
+      h1: ({children}: any) => <Heading as='h1' size='2xl' lineHeight="1.4">{children}</Heading>,
+      h2: ({children}: any) => <Heading as='h2' lineHeight="1.4">{children}</Heading>,
+      h3: ({children}: any) => <Heading as='h3' lineHeight="1.4">{children}</Heading>,
+      h4: ({children}: any) => <Heading as='h4' size='md' lineHeight="1.6">{children}</Heading>,
     },
     list: {
-        bullet: ({children}: any) => <UnorderedList>{children}</UnorderedList>,
-        number: ({children}: any) => <OrderedList>{children}</OrderedList>,
+      bullet: ({children}: any) => <UnorderedList>{children}</UnorderedList>,
+      number: ({children}: any) => <OrderedList>{children}</OrderedList>,
     },
     listItem: {
-        bullet: ({children}: any) => <ListItem>{children}</ListItem>,
-        number: ({children}: any) => <ListItem>{children}</ListItem>,
+      bullet: ({children}: any) => <ListItem>{children}</ListItem>,
+      number: ({children}: any) => <ListItem>{children}</ListItem>,
     },
     marks: {
-        link: ({value, children}: any) => {
-          const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
-          return (
-            <Link color="pyyap.500" href={value?.href} target={target}>
-              {children}
-            </Link>
-          )
-        },
+      link: ({value, children}: any) => {
+        const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
+        return (
+          <Link color="pyyap.500" href={value?.href} target={target}>
+            {children}
+          </Link>
+        )
       },
+    },
+    types: {
+      image: SampleImageComponent,
+      acast: Acast
+    },
   }
 
 export default function Page() {
