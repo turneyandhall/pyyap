@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { withEmotionCache } from '@emotion/react'
-import { ChakraProvider } from '@chakra-ui/react'
+import { Box, Center, ChakraProvider, Heading, Text } from '@chakra-ui/react'
 import { Theme } from "./styles/theme"
 import Site from "./components/site"
 import Main from "./components/main"
@@ -11,6 +11,7 @@ import {
   Meta,
   Scripts,
   ScrollRestoration,
+  useCatch,
 } from '@remix-run/react'
 import { MetaFunction, LinksFunction } from '@remix-run/node' // Depends on the runtime you choose
 
@@ -98,6 +99,25 @@ export default function App() {
         <Site>
           <Menu />
           <Main />
+        </Site>
+      </ChakraProvider>
+    </Document>
+  )
+}
+
+export function CatchBoundary() {
+  const caught = useCatch();
+  return (
+    <Document>
+      <ChakraProvider theme={Theme}>
+        <Site>
+          <Menu />
+          <Center h='100vh' bg='pyyap.500' color='white'>
+            <Box p='10'>
+            <Heading as='h1' size='2xl' fontFamily="DM Serif Display, serif" lineHeight="1.4" fontWeight="400">Pinch Yourself!</Heading>
+            <Text>There doesn't seem to be anything at this url I'm afraid. Try an option from the menu.</Text>
+            </Box>
+          </Center>
         </Site>
       </ChakraProvider>
     </Document>

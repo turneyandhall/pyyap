@@ -5,8 +5,9 @@ import { config } from "~/lib/sanity/config"
 import imageUrlBuilder from '@sanity/image-url'
 import { PortableText } from '@portabletext/react'
 import TextContainer from "~/components/textContainer";
-import { Box, Heading, Image, Link as PLink, ListItem, Text, UnorderedList } from '@chakra-ui/react'
+import { Box, Flex, Heading, Icon, Image, Link as PLink, ListItem, Text, UnorderedList } from '@chakra-ui/react'
 import { motion } from "framer-motion"
+import { TbArrowRampRight2 } from "react-icons/tb";
 
 export const meta: MetaFunction = () => {
   return {
@@ -20,7 +21,7 @@ export async function loader() {
 		`*[_type == "home"]{ body }`,
 	)
   const posts = await getClient().fetch(
-		`*[_type == "post"] | order(dateTime(publishedAt) desc) {
+		`*[_type == "post"] | order(dateTime(publishedAt) desc)[0...6] {
         _id, 
         title, 
         slug, 
@@ -117,7 +118,19 @@ export default function Index() {
               </Link>
           	</Box>
 				  ))
-				: null}
+          : null}
+        <Flex align='center'>
+          <Link to='/posts'>
+            <Text
+              fontSize='xs'
+              mr='2'
+              _hover={{
+                color: "pyyap.500",
+              }}
+            > All Posts</Text>
+          </Link>
+          <Icon as={TbArrowRampRight2} />
+        </Flex>
       </TextContainer>
     </>
   )
