@@ -6,12 +6,15 @@ import { PortableText } from '@portabletext/react'
 import { Box, Heading, Image, Link, OrderedList, UnorderedList, ListItem, Text } from "@chakra-ui/react"
 import Container from "~/components/container";
 import TextContainer from "~/components/textContainer";
+import { json } from "@remix-run/node";
 
 export async function loader({ params }: any) {
 	const page = await getClient().fetch(
 		`*[_type == "post" && slug.current == $slug] { mainImage, title, body, publishedAt, "cats": categories[]->title }`,
 		{ slug: params.slug }
-	);
+  );
+
+  if (!page || page.length === 0) throw json({ error: "post not found" }, { status: 404 })
 
 	return { page };
 }
@@ -74,8 +77,9 @@ const bodyComponents = {
   }
 
 export default function Page() {
-	let { page } = useLoaderData();
-    let { mainImage, title, body, publishedAt, cats } = page[0]
+  let { page } = useLoaderData();
+  
+  let { mainImage, title, body, publishedAt, cats } = page[0]
 	const day = new Date(publishedAt).toLocaleString("en-US", { day : 'numeric'})
 	const month = new Date(publishedAt).toLocaleString("en-US", { month: "short" })
 	const year = new Date(publishedAt).getFullYear()
