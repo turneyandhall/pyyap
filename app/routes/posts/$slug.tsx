@@ -132,7 +132,7 @@ export default function Page() {
             onSubmit={handleSubmit}>
             <Stack spacing={3} maxW="500px">
               <input type='hidden' name='form-name' value='ode' />
-              <Input type="text" focusBorderColor='pyyap.500' name="personName" placeholder='Name' />
+              <Input type="text" focusBorderColor='pyyap.500' name="personName" placeholder='Name (optional)' />
               <Textarea name="contribution" focusBorderColor='pyyap.500' isRequired placeholder='Contribution to the ode' />
               <Input type="text" focusBorderColor='pyyap.500' name="location" placeholder='Location/where you plan' />
               <Button type="submit" bg='pyyap.500' color="white" variant='solid' _hover={{ bg: 'pyyap.600' }} _active={{ bg: 'pyyap.600' }} _focus={{ bg: 'pyyap.600' }}>Submit</Button>
