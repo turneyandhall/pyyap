@@ -85,7 +85,7 @@ export default function Page() {
     e.preventDefault()
 
     const form = e.target as typeof e.target & {
-      name: { value: string }
+      personName: { value: string }
       contribution: { value: string }
       location: { value: string }
     }
@@ -131,9 +131,9 @@ export default function Page() {
             data-netlify="true"
             onSubmit={handleSubmit}>
             <Stack spacing={3} maxW="500px">
-              <input type='hidden' name='form-name' value='contact' />
-              <Input type="text" focusBorderColor='pyyap.500' name="name" placeholder='Name' />
-              <Textarea name="message" focusBorderColor='pyyap.500' isRequired placeholder='Contribution to the ode' />
+              <input type='hidden' name='form-name' value='ode' />
+              <Input type="text" focusBorderColor='pyyap.500' name="personName" placeholder='Name' />
+              <Textarea name="contribution" focusBorderColor='pyyap.500' isRequired placeholder='Contribution to the ode' />
               <Input type="text" focusBorderColor='pyyap.500' name="location" placeholder='Location/where you plan' />
               <Button type="submit" bg='pyyap.500' color="white" variant='solid' _hover={{ bg: 'pyyap.600' }} _active={{ bg: 'pyyap.600' }} _focus={{ bg: 'pyyap.600' }}>Submit</Button>
             </Stack>
