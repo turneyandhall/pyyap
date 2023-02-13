@@ -6,9 +6,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import { PortableText } from '@portabletext/react'
 import Container from "~/components/container"
 import TextContainer from "~/components/textContainer";
-
 import { Box, Button, FormControl, Heading, Image, Input, Link, ListItem, Select, Stack, Text, Textarea, UnorderedList } from '@chakra-ui/react'
-
 
 export const meta: MetaFunction = () => {
   return {

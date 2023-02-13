@@ -15,7 +15,7 @@ export default function SuccessMessage() {
   return (
     <Box bg="pyyap.500" minH="100vh">
         <TextContainer>
-            <Heading as='h2' color="white" fontFamily="DM Serif Display, serif" lineHeight="1.4" fontWeight="400">Thank You!</Heading>
+            <Heading as='h2' color="white" fontFamily="DM Serif Display, serif" lineHeight="1.4" fontWeight="400">Thank you!</Heading>
         </TextContainer>
     </Box>
 
