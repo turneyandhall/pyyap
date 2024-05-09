@@ -73,6 +73,20 @@ const Document = withEmotionCache(
           <meta name="msapplication-TileColor" content="#da532c"></meta>
           <meta name="theme-color" content="#ffffff"></meta>
           <Links />
+          <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=G-R8J64Z5DQR`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-R8J64Z5DQR');
+            `,
+          }}
+        />
           {serverStyleData?.map(({ key, ids, css }) => (
             <style
               key={key}
@@ -114,8 +128,8 @@ export function CatchBoundary() {
           <Menu />
           <Center h='100vh' bg='pyyap.500' color='white'>
             <Box p='10'>
-            <Heading as='h1' size='2xl' fontFamily="DM Serif Display, serif" lineHeight="1.4" fontWeight="400">Pinch Yourself!</Heading>
-            <Text>There doesn't seem to be anything at this url I'm afraid. Try an option from the menu.</Text>
+            {/* <Heading as='h1' size='2xl' fontFamily="DM Serif Display, serif" lineHeight="1.4" fontWeight="400">Pinch Yourself!</Heading> */}
+            {/* <Text>There doesn't seem to be anything at this url I'm afraid. Try an option from the menu.</Text> */}
             </Box>
           </Center>
         </Site>
